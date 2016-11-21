@@ -1,19 +1,19 @@
-# generator-s-electron [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-electron-angular [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > 
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-s-electron using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-electron-angular using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-s-electron
+npm install -g generator-electron-angular
 ```
 
 Then generate your new project:
 
 ```bash
-yo s-electron
+yo electron-angular
 ```
 
 ## Getting To Know Yeoman
@@ -28,9 +28,9 @@ yo s-electron
 Apache-2.0 © [Sajera]()
 
 
-[npm-image]: https://badge.fury.io/js/generator-s-electron.svg
-[npm-url]: https://npmjs.org/package/generator-s-electron
-[travis-image]: https://travis-ci.org/sajera/generator-s-electron.svg?branch=master
-[travis-url]: https://travis-ci.org/sajera/generator-s-electron
-[daviddm-image]: https://david-dm.org/sajera/generator-s-electron.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/sajera/generator-s-electron
+[npm-image]: https://badge.fury.io/js/generator-electron-angular.svg
+[npm-url]: https://npmjs.org/package/generator-electron-angular
+[travis-image]: https://travis-ci.org/sajera/generator-electron-angular.svg?branch=master
+[travis-url]: https://travis-ci.org/sajera/generator-electron-angular
+[daviddm-image]: https://david-dm.org/sajera/generator-electron-angular.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/sajera/generator-electron-angular
