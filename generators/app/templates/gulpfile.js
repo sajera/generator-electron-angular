@@ -14,7 +14,7 @@ var options = {
 	app: {
 		src: './source',
 		temp: './.tmp',
-		dist: './dist',
+		dist: './production',
 	},
 	// js processing pathes
 	js: {
@@ -58,7 +58,7 @@ gulp.task('run', ['start-inject'], function() {
 	restartElectron();
 	gulp.start('watch');
 });
-gulp.task('start-inject', gulpsync.async([['inject-bower', <%- js %>'inject-scripts'], [<%- css %>'inject-styles']]));
+gulp.task('start-inject', gulpsync.async([[<%- js %>'inject-scripts', 'inject-bower'], [<%- css %>'inject-styles']]));
 /*-------------------------------------------------
     "del": "^2.2.2",
 ---------------------------------------------------*/
