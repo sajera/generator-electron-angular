@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="description" content="<%= title %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/images/favicon-32x32.png" sizes="32x32">
+    
+    <!-- build:css all.css -->
+
+    <!-- bower:css -->
+    <!-- endbower -->
+
+    <!-- inject:css -->
+    <!-- endinject -->
+
+    <!-- endbuild -->
+
+  </head>
+  <body data-ng-app="<%= app %>">
+
+    <div id="wrap" data-ui-view></div>
+
+  </body>
+  <!-- with jquery in this case have a trouble namespaces -->
+  <script type="text/javascript">window.jQuery = require('jquery');</script>
+
+  <!-- build:js app.js -->
+
+  <!-- bower:js -->
+  <!-- endbower -->
+
+  <!-- inject:js -->
+  <!-- endinject -->
+
+  <!-- endbuild -->
+
+</html>
