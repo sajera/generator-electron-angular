@@ -10,53 +10,59 @@ var electron = require('electron');
 var gulpsync = require('gulp-sync')(gulp);
 
 var options = {
-	// root directory application
-	app: {
-		src: './source',
-		temp: './.tmp',
-		dist: './production',
-	},
-	// js processing pathes
-	js: {
-		root: '/scripts',
-		src: '/**/*.js',
-		typescript: '/index.ts',
-		coffeescript: '/index.coffee',
-	},
-	// js processing pathes
-	css: {
-		root: '/styles',
-		src: '/**/*.css',
-		less: '/all.less',
-		sass: '/all.sass',
-		stylus: '/all.styl',
-	},
-	// images, fonts and others processing paths
-	assets: {
-		root: '/assets',
-		img: '/images/**',
-		font: '/fonts/**',
-	}
+    // root directory application
+    app: {
+        src: './source',
+        temp: './.tmp',
+        dist: './production',
+    },
+    // js processing pathes
+    js: {
+        root: '/scripts',
+        src: '/**/*.js',
+        typescript: '/index.ts',
+        coffeescript: '/index.coffee',
+    },
+    // js processing pathes
+    css: {
+        root: '/styles',
+        src: '/**/*.css',
+        less: '/all.less',
+        sass: '/all.sass',
+        stylus: '/all.styl',
+    },
+    // images, fonts and others processing paths
+    assets: {
+        root: '/assets',
+        img: '/images/**',
+        font: '/fonts/**',
+    }
 };
 
 /*-------------------------------------------------
-		DECLARATION of TASKS
+        DECLARATION of TASKS
 ---------------------------------------------------*/
 gulp.task('default', ['clean'], function ( done ) {
-	console.log('default task - clean');
-	done();
+    console.log('default task - clean');
+    done();
 });
 /*-------------------------------------------------
-		run electron
+        run electron
 ---------------------------------------------------*/
-var child;
+var child, timeblock = false;
 function restartElectron () {
-	child && child.kill('SIGTERM');
-	child = require('child_process').spawn(electron, [options.app.src], { stdio: 'inherit'});
+    if (!timeblock) {
+        timeblock = true;
+        setTimeout(function () {
+            child && child.kill('SIGTERM');
+            child = require('child_process').spawn(electron, [options.app.src], { stdio: 'inherit'});
+            timeblock = false;
+        }, 3*1000);
+    }
 }
 gulp.task('run', ['start-inject'], function() {
-	restartElectron();
-	gulp.start('watch');
+    restartElectron();
+    gulp.start('watch');
 });
 gulp.task('start-inject', gulpsync.async([[<%- js %>'inject-scripts', 'inject-bower'], [<%- css %>'inject-styles']]));
 /*-------------------------------------------------
