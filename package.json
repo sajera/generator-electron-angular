@@ -1,6 +1,6 @@
 {
   "name": "generator-electron-angular",
-  "version": "0.9.1",
+  "version": "0.9.11",
   "description": "Make easy scaffolding for ELECTRON project with ANGULAR",
   "homepage": "",
   "author": {
@@ -43,7 +43,7 @@
       "mocha": true
     }
   },
-  "repository": "sajera/generator-s-electron",
+  "repository": "sajera/generator-electron-angular",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
