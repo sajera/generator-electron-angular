@@ -207,10 +207,11 @@ gulp.task('templatecache', function () {
         .pipe( (require('gulp-angular-templatecache'))('templateCacheHtml.js', {
             standalone: false,
             module: '<%=app%>',
-            root: options.js.root,
+            root: options.js.root.replace(/[\\|\/|\.]/g,''),
         }) )
         .pipe( gulp.dest(path.join(options.app.src, options.js.root)) );
 });
+
 gulp.task('main-copy', function () {
     return gulp.src([
             // maybe you have more than one main file
@@ -253,7 +254,7 @@ gulp.task('dist', ['start-inject', 'assets'], function() {
             collapseBooleanAttributes: true,
             collapseWhitespace: true
         })) )
-        .pipe( gulp.dest(path.join(options.app.dist, '/')) )
+        .pipe( gulp.dest(path.join(options.app.dist, '/')) );
 });
 
 
@@ -263,7 +264,11 @@ gulp.task('dist', ['start-inject', 'assets'], function() {
 ---------------------------------------------------*/
 gulp.task('electrify-win', ['dist'], function () {
     var pkg = require(options.app.src+'/package.json');
-    (require('del')).sync(['./'+pkg.name+'-win32-ia32', './'+pkg.name+'-win32-x64']);
+    (require('del')).sync([
+        './'+pkg.name+'-win32-ia32',
+        './'+pkg.name+'-win32-x64',
+        path.join(options.app.src, options.js.root, 'templateCacheHtml.js')
+    ]);
     require('electron-packager')( {
         dir: options.app.dist,
         name: pkg.name,
@@ -278,7 +283,12 @@ gulp.task('electrify-win', ['dist'], function () {
 
 gulp.task('electrify-linux', ['dist'], function () {
     var pkg = require(options.app.src+'/package.json');
-    (require('del')).sync(['./'+pkg.name+'-linux-ia32', './'+pkg.name+'-linux-x64', './'+pkg.name+'-linux-armv7l']);
+    (require('del')).sync([
+        './'+pkg.name+'-linux-ia32',
+        './'+pkg.name+'-linux-x64',
+        './'+pkg.name+'-linux-armv7l',
+        path.join(options.app.src, options.js.root, 'templateCacheHtml.js')
+    ]);
     require('electron-packager')( {
         dir: options.app.dist,
         name: pkg.name,
@@ -293,7 +303,12 @@ gulp.task('electrify-linux', ['dist'], function () {
 
 gulp.task('electrify-mas', ['dist'], function () {
     var pkg = require(options.app.src+'/package.json');
-    (require('del')).sync(['./'+pkg.name+'-mas-ia32', './'+pkg.name+'-mas-x64', './'+pkg.name+'-mas-armv7l']);
+    (require('del')).sync([
+        './'+pkg.name+'-mas-ia32',
+        './'+pkg.name+'-mas-x64',
+        './'+pkg.name+'-mas-armv7l',
+        path.join(options.app.src, options.js.root, 'templateCacheHtml.js')
+    ]);
     require('electron-packager')( {
         dir: options.app.dist,
         name: pkg.name,
