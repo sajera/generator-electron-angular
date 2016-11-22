@@ -15,7 +15,7 @@ angular
 		$stateProvider.state('layout', {
 			url: '/layout',
 			abstract: true,
-			templateUrl: '/scripts/states/layout.html',
+			templateUrl: 'scripts/states/layout.html',
 			controller: 'layoutController',
 		});
 
