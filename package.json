@@ -1,6 +1,6 @@
 {
   "name": "generator-electron-angular",
-  "version": "0.9.11",
+  "version": "0.9.2",
   "description": "Make easy scaffolding for ELECTRON project with ANGULAR",
   "homepage": "",
   "author": {
@@ -14,7 +14,8 @@
   "main": "generators/index.js",
   "keywords": [
     "electron",
-    "yeoman-generator"
+    "electron-angular",
+    "electron-generator",
   ],
   "dependencies": {
     "del": "^2.2.2",

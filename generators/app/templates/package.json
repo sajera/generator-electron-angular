@@ -37,7 +37,8 @@
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "pre-install": "npm i & echo \"npm i sucess\" & bower i & echo \"bower i sucess\" & cd source & npm i & echo \"source npm i sucess\" & cd ..",
-        "start": "gulp run"
+        "pre-install": "npm i & echo \"preprocessor installed\" & bower i & echo \"bower dependencies installed\" & cd source & npm i & echo \"source dependencies installed\" & cd .. & npm run start",
+        "start": "gulp run",
+        "build": "electron-packager source APP --all --version=0.33.3 --app-version=0.1.0 --out=.tmp --prune"
     }
 }

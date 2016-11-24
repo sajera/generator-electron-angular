@@ -330,7 +330,7 @@ gulp.task('electrify-mas', ['dist'], function () {
 /*-------------------------------------------------
     ШАБЛОН КОМАНДЫ
 electron-packager <sourcedir> <appname> --platform=<platform> --arch=<arch> --version=<version>
-electron-packager . source --all --version=0.33.3 --app-version=0.1.0 --out=dist --ignore=dist --prune
+electron-packager source APP --all --version=0.33.3 --app-version=0.1.0 --out=.tmp --prune
 
     Обязательные аргументы
 ---------------------------------------------------*/
