@@ -15,7 +15,7 @@
   "keywords": [
     "electron",
     "electron-angular",
-    "electron-generator",
+    "electron-generator"
   ],
   "dependencies": {
     "del": "^2.2.2",
